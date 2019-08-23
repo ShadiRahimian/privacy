@@ -138,7 +138,7 @@ def extract_svhn(local_url):
 def unpickle_cifar_dic(file_path):
   """Helper function: unpickles a dictionary (used for loading CIFAR)."""
   file_obj = open(file_path, 'rb')
-  data_dict = pickle.load(file_obj)
+  data_dict = pickle.load(file_obj, encoding='latin1')
   file_obj.close()
   return data_dict['data'], data_dict['labels']
 
@@ -162,15 +162,15 @@ def extract_cifar10(local_url, data_dir):
 
   if all_preprocessed:
     # Reload pre-processed training data from numpy dumps
-    with tf.gfile.Open(data_dir + preprocessed_files[0], mode='r') as file_obj:
+    with tf.gfile.Open(data_dir + preprocessed_files[0], mode='rb') as file_obj:
       train_data = np.load(file_obj)
-    with tf.gfile.Open(data_dir + preprocessed_files[1], mode='r') as file_obj:
+    with tf.gfile.Open(data_dir + preprocessed_files[1], mode='rb') as file_obj:
       train_labels = np.load(file_obj)
 
     # Reload pre-processed testing data from numpy dumps
-    with tf.gfile.Open(data_dir + preprocessed_files[2], mode='r') as file_obj:
+    with tf.gfile.Open(data_dir + preprocessed_files[2], mode='rb') as file_obj:
       test_data = np.load(file_obj)
-    with tf.gfile.Open(data_dir + preprocessed_files[3], mode='r') as file_obj:
+    with tf.gfile.Open(data_dir + preprocessed_files[3], mode='rb') as file_obj:
       test_labels = np.load(file_obj)
 
   else:

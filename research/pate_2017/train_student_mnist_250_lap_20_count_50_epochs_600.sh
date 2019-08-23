@@ -16,6 +16,7 @@
 
 # Be sure to clone https://github.com/openai/improved-gan
 # and add improved-gan/mnist_svhn_cifar10 to your PATH variable
+export PATH="/BS/rahimian/work/mi/imporoved-gan/mnist_svhn_cifar10":$PATH
 
 # Download labels used to train the student
 wget https://github.com/npapernot/multiple-teachers-for-privacy/blob/master/mnist_250_student_labels_lap_20.npy
